@@ -58,3 +58,63 @@ input[type="password"]:focus {
     border-color: #ff7e5f;
     outline: none;
 }
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+}
+
+select,
+input[type="date"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background: #fafafa;
+}
+
+select:focus,
+input[type="date"]:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    background: #fafafa;
+    color: #333;
+}
+
+.input:focus {
+    border-color: #ff7e5f;
+    outline: none;
+    background: #fffbe6;
+}
+
+.btn {
+    background: #ff7e5f;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #feb47b;
+}
