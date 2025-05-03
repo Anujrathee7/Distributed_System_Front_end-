@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Appointments() {
   const [username, setUsername] = useState("");
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // For routing
 
   const fetchAppointments = async () => {
     setError("");
@@ -34,12 +36,20 @@ function Appointments() {
           />
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex gap-4">
           <button
             onClick={fetchAppointments}
-            className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Load Appointments
+          </button>
+          <br/>
+          <br/>
+          <button
+            onClick={() => navigate("/book")}
+            className="flex-1 py-2 px-4 bg-green-600 text-white font-semibold rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Book Appointment
           </button>
         </div>
 
