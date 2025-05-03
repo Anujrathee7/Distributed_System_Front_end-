@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Booking from './pages/Booking';
-import Login from "./pages/login";
-import Appointments from './pages/Appointments.jsx';
+import Login from "./pages/Login";
+import Appointments from './pages/Appointments';
 
 function App() {
   return (
