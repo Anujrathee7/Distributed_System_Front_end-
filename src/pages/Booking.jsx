@@ -11,6 +11,7 @@ function Booking() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(form);
     const res = await axios.post("http://localhost:8001/book", form);
     alert(res.data.status);
   };
