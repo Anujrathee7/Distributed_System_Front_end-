@@ -6,14 +6,17 @@ function Appointments() {
   const [username, setUsername] = useState("");
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // For routing
+  const [hasSearched, setHasSearched] = useState(false);
+  const navigate = useNavigate();
 
   const fetchAppointments = async () => {
     setError("");
+    setHasSearched(true);
     try {
       const res = await axios.get(`http://localhost:8001/appointments/${username}`);
       setAppointments(res.data);
     } catch (err) {
+      setAppointments([]);
       setError(err.response?.data?.detail || "An error occurred");
     }
   };
@@ -26,7 +29,9 @@ function Appointments() {
         {error && <div className="text-red-600 text-center mb-4">{error}</div>}
 
         <div>
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">Enter Username</label>
+          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+            Enter Username
+          </label>
           <input
             type="text"
             id="username"
@@ -43,8 +48,6 @@ function Appointments() {
           >
             Load Appointments
           </button>
-          <br/>
-          <br/>
           <button
             onClick={() => navigate("/book")}
             className="flex-1 py-2 px-4 bg-green-600 text-white font-semibold rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -55,7 +58,7 @@ function Appointments() {
 
         <div className="mt-6">
           <ul className="space-y-4">
-            {appointments.length === 0 ? (
+            {appointments.length === 0 && hasSearched ? (
               <li className="text-center text-gray-500">No appointments found.</li>
             ) : (
               appointments.map((a, i) => (
@@ -66,6 +69,15 @@ function Appointments() {
               ))
             )}
           </ul>
+        </div>
+
+        <div className="text-center">
+          <button
+            onClick={() => navigate("/login")}
+            className="mt-6 px-4 py-2 bg-red-600 text-white font-semibold rounded-md shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </div>
