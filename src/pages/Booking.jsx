@@ -70,6 +70,15 @@ function Booking() {
         <button type="submit" className="btn bg-green-600 text-white w-full">
           Book
         </button>
+        <p className="mt-6 text-sm text-center">
+                    Go back to appointments{" "}
+                    <a
+                    href="/appointments"
+                    className="text-blue-500 hover:underline font-medium"
+                    >
+                    Click here
+                    </a>
+                </p>
       </form>
     </div>
   );

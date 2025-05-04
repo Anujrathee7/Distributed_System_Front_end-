@@ -63,7 +63,7 @@ function Appointments() {
             ) : (
               appointments.map((a, i) => (
                 <li key={i} className="border border-gray-300 rounded-lg p-4 bg-gray-100">
-                  <p className="text-lg font-semibold">Dr. {a.doctor}</p>
+                  <p className="text-lg font-semibold">{a.doctor}</p>
                   <p className="text-sm text-gray-600">Time: {new Date(a.time).toLocaleString()}</p>
                 </li>
               ))
